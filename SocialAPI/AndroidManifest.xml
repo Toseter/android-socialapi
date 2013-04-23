@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.poloniumarts.socialapi"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    
+    <!-- Min version 8 - is a facebook restriction (working with ssl) -->
+    <uses-sdk
+        android:minSdkVersion="8"/>
+
+</manifest>

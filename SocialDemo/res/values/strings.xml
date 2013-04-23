@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Configuration -->
+    <string name="facebook_app_id">363389053765093</string>
+    <string name="vk_app_id">3596933</string>
+    <string name="twitter_consumer_key">urS9jdU0Fr8Y3rA0q13AA</string>
+    <string name="twitter_consumer_secret">C0BaMEgBbWzp7am9EpYzKuMyRvrjsYQTp49l1gSVAUM</string>
+    
+    <!-- General -->
+    <string name="app_name">SocialDemo</string>
+    <string name="loading">Loading&#8230;</string>
+    <string name="please_wait">Please wait</string>
+    <string name="error">Error</string>
+    <string name="try_again">Try again</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="unknown">Unknown</string>
+    
+	<!-- names -->
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="vk">ВКонтакте</string>
+    
+    
+    <!--  actions  -->
+    <string name="login">Login</string>    
+    <string name="publish_text">Publish text</string>
+    <string name="publish_picture">Publish text with image</string>
+    
+    <!--  === labels  === -->
+    <!--  fragment_login  -->
+    <string name="choose">Please choose social network type</string>
+    
+    <!-- fragment_publish  -->
+    <string name="message_body">Message body</string>
+    <string name="photo_to_post">Photo to post</string>
+    <string name="first_name">First name: </string>
+    <string name="last_name">Last name: </string>
+    <string name="email">e-mail: </string>
+    <string name="birthdate">Birthdate: </string>
+    <string name="sex">Sex: </string>
+    <string name="wall_post_fail">Can\'t send post to feed</string>
+    <string name="wall_post_success">The post has been successfully sent to feed</string>
+    <string name="login_fail">You haven\'t been logged in</string>
+    <string name="login_success">You have been successfully logged in</string>
+    <string name="choose_image">Choose image</string>
+    
+</resources>

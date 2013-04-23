@@ -1,0 +1,61 @@
+<resources>
+    
+    <color name="dark">#333333</color>
+    <color name="darkShadowColor">#40000000</color>
+    <color name="hintColor">#ababab</color>
+    <color name="lightGray">#edf1f4</color>
+    
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    
+    
+	<style name="ButtonFacebook">
+	    <item name="android:background">@drawable/button_facebook_normal</item>
+	    <item name="android:textColor">@android:color/white</item>
+	    <item name="android:shadowColor">@color/darkShadowColor</item>
+	    <item name="android:shadowDy">1</item>
+	    <item name="android:shadowDx">0</item>
+	    <item name="android:shadowRadius">1</item>
+	    <item name="android:minHeight">44dp</item>
+	</style>
+	
+	<style name="ButtonVkontakte">
+	    <item name="android:background">@drawable/button_vkontakte_normal</item>
+	    <item name="android:textColor">@android:color/white</item>
+	    <item name="android:shadowColor">@color/darkShadowColor</item>
+	    <item name="android:shadowDy">1</item>
+	    <item name="android:shadowDx">0</item>
+	    <item name="android:shadowRadius">1</item>
+	    <item name="android:minHeight">44dp</item>
+	</style>    
+
+	<style name="ButtonDarkGray">
+	    <item name="android:background">@drawable/selector_button_exit</item>
+	    <item name="android:textColor">@android:color/white</item>
+	    <item name="android:shadowColor">@color/darkShadowColor</item>
+	    <item name="android:shadowDy">1</item>
+	    <item name="android:shadowDx">0</item>
+	    <item name="android:shadowRadius">1</item>
+	    <item name="android:minHeight">44dp</item>
+	    <item name="android:textStyle">bold</item>
+	    <item name="android:textSize">16sp</item>
+	    <item name="android:paddingLeft">8dp</item>
+	    <item name="android:paddingRight">8dp</item>
+	</style>
+	
+</resources>
