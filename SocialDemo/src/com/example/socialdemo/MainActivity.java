@@ -49,7 +49,6 @@ public class MainActivity extends FragmentActivity implements OnFragmentInteract
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		if (currentFragment != null){
 			currentFragment.onActivityResult(requestCode, resultCode, data);

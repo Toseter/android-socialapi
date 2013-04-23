@@ -22,43 +22,60 @@ public class SocialNetwork {
 	 */
 	static public User getUser(Activity context, int socialNetworkType, int onActivityResultRequestCode) {
 		
-		fetchRequisitions( context );
+		fetchMetadata( context );
 	    
 		switch (socialNetworkType) {
 		case VK:
+			fetchVkParameters();
 			return new UserVk(context, onActivityResultRequestCode);
 		case FACEBOOK:
+			fetchFacebookParameters();
 			return new UserFacebook(context, onActivityResultRequestCode);
 		case TWITTER:
+			fetchTwitterParameters();
 			return new UserTwitter(context, onActivityResultRequestCode);
 		default:
 			throw new InvalidParameterException("Unknown type of social network");
 		}
 	}
 
-	private static void fetchRequisitions(Activity context) {
+	private static Bundle	metadata = null;
+	private static void fetchMetadata(Activity context) {
+		if (metadata != null){
+			return;
+		}
 		ApplicationInfo ai = null;
 		try {
 			ai = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
 		} catch (NameNotFoundException e){
 		};
 		
-	    Bundle bundle = ai.metaData;
-	    String facebookId = bundle.getString("com.facebook.sdk.ApplicationId");
-	    if (facebookId == null){
-	    	throw new IllegalStateException("You haven't set up com.facebook.ApplicationId constant in AndroidManifest.xml");
-	    }
+	    metadata = ai.metaData;
+	}
+	
+	/**
+	 * Doesn't fetch anything, just check errors */
+	private static void fetchFacebookParameters(){
+		String facebookId = metadata.getString("com.facebook.sdk.ApplicationId");
+	    assert facebookId != null && facebookId.length() > 0: "You haven't set up com.facebook.ApplicationId constant in AndroidManifest.xml";
+	}
+	
+	private static void fetchVkParameters(){
+		if (Constants.VK_APP_ID != null){
+			return;
+		}
 		
-	    String vkId = bundle.getString("com.poloniumarts.vk_app_id");
-	    if (vkId == null){
-	    	throw new IllegalStateException("You haven't set up com.perm.ApplicationId constant in AndroidManifest.xml");
-	    }	    
-	    
-	    Constants.TWITTER_CONSUMER_KEY = bundle.getString("com.poloniumarts.twitter_consumer_key");
-	    Constants.TWITTER_CONSUMER_SECRET = bundle.getString("com.poloniumarts.twitter_consumer_secret");
-	    
-	    Constants.VK_APP_ID = vkId;
-	    
-	    		
+	    Constants.VK_APP_ID = metadata.getString("com.poloniumarts.vk_app_id");
+	    assert Constants.VK_APP_ID != null && Constants.VK_APP_ID.length() > 0 : "You haven't set up com.perm.ApplicationId constant in AndroidManifest.xml";
+	}
+	
+	private static void fetchTwitterParameters(){
+		if (Constants.TWITTER_CONSUMER_KEY != null && Constants.TWITTER_CONSUMER_SECRET != null){
+			return;
+		}
+	    Constants.TWITTER_CONSUMER_KEY 		= metadata.getString("com.poloniumarts.twitter_consumer_key");
+	    Constants.TWITTER_CONSUMER_SECRET 	= metadata.getString("com.poloniumarts.twitter_consumer_secret");
+	    assert Constants.TWITTER_CONSUMER_KEY != null && Constants.TWITTER_CONSUMER_KEY.length() > 0 : "You haven't set up com.poloniumarts.twitter_consumer_key";
+	    assert Constants.TWITTER_CONSUMER_SECRET != null && Constants.TWITTER_CONSUMER_SECRET.length() > 0: "You haven't set up com.poloniumarts.twitter_consumer_secret";
 	}
 }
