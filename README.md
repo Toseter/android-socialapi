@@ -5,6 +5,9 @@ android-socialapi
 1. Публиковать сообщения на стенку пользователю (в т.ч. с изображением)
 1. Брать базовую информацию о пользователе, если соц. сервис её предоставляет (имя, фамилия, email, день рождения, пол и адрес аватарки 100x100).
 
+### Альтернативы?
+[Social Auth for Android](https://code.google.com/p/socialauth-android/) имеет интеграцию с бОльшим количеством соц. сетей, но не может работать со ВКонтакте.
+
 ### Hello World
 ```
 public class MainActivity extends Activity implements OnUserLoggedInListener, OnWallPostedListener {
