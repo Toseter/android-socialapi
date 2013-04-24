@@ -1,8 +1,10 @@
 package com.poloniumarts.social;
 
+import java.lang.reflect.Method;
 import java.security.InvalidParameterException;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -21,7 +23,7 @@ public class SocialNetwork {
 	 * @return interface {@link User} for an interaction with social network
 	 */
 	static public User getUser(Activity context, int socialNetworkType, int onActivityResultRequestCode) {
-		
+		checkOnActivityResultOverloading(context);
 		fetchMetadata( context );
 	    
 		switch (socialNetworkType) {
@@ -39,6 +41,10 @@ public class SocialNetwork {
 		}
 	}
 
+	public 	static void skipOnActivityResultCheck(){
+		skipOnActivityResultCheck = true;
+	}
+	private static boolean 	skipOnActivityResultCheck;
 	private static Bundle	metadata = null;
 	private static void fetchMetadata(Activity context) {
 		if (metadata != null){
@@ -77,5 +83,18 @@ public class SocialNetwork {
 	    Constants.TWITTER_CONSUMER_SECRET 	= metadata.getString("com.poloniumarts.twitter_consumer_secret");
 	    assert Constants.TWITTER_CONSUMER_KEY != null && Constants.TWITTER_CONSUMER_KEY.length() > 0 : "You haven't set up com.poloniumarts.twitter_consumer_key";
 	    assert Constants.TWITTER_CONSUMER_SECRET != null && Constants.TWITTER_CONSUMER_SECRET.length() > 0: "You haven't set up com.poloniumarts.twitter_consumer_secret";
+	}
+	
+	private static void checkOnActivityResultOverloading(Activity context){
+		if (skipOnActivityResultCheck){
+			return;
+		}
+		Class<? extends Activity> activityClass = context.getClass();
+		try {
+			Method onActivityResult = activityClass.getDeclaredMethod("onActivityResult", new Class[]{Integer.TYPE, Integer.TYPE, Intent.class});
+		} catch (NoSuchMethodException e) {
+			assert false : "You haven't overrode onActivityResult in your activity or haven't invoked SocialNetwork.skipOnActivityResultCheck()";
+		}
+		
 	}
 }
