@@ -57,6 +57,8 @@ public class SocialNetwork {
 		};
 		
 	    metadata = ai.metaData;
+	    assert metadata != null : "You haven't set metadata for you project. Please, see tutorial:" +
+	    		"https://github.com/PoloniumArts/android-socialapi/wiki/%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5";
 	}
 	
 	/**

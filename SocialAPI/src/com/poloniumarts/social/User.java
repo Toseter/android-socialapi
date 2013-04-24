@@ -45,6 +45,10 @@ public interface User extends OnActivityResultListener {
 	 */
 	public int getSex();
 
+	/**
+	 * 
+	 * @return address of user's avatar (100x100)
+	 */
 	public String getPicture();
 	
 }

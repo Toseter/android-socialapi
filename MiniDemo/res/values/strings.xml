@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Configuration -->
+	<string name="facebook_app_id">363389053765093</string>
+	<string name="vk_app_id">3596933</string>
+	<string name="twitter_consumer_key">urS9jdU0Fr8Y3rA0q13AA</string>
+	<string name="twitter_consumer_secret">C0BaMEgBbWzp7am9EpYzKuMyRvrjsYQTp49l1gSVAUM</string>
+</resources>
