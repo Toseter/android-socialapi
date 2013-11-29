@@ -31,10 +31,20 @@ local.properties
 build.xml
 ant.properties
 local.properties
+project.properties
 proguard.cfg
 proguard-project.txt
 
 #Other
 .DS_Store
 tmp
+
+#gradle
+build/
+gradle/
+.gradle/
+
+#idea files
+.idea/
+*.iml
 
